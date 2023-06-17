@@ -47,8 +47,8 @@ public class AppConfig {
         return dataSource;
     }
 
-    /*
-    @Bean
+
+    /*@Bean
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource());
@@ -67,8 +67,8 @@ public class AppConfig {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());
         return transactionManager;
-    }
-    */
+    }*/
+
 
 
     @Bean
@@ -76,7 +76,7 @@ public class AppConfig {
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean(); // HibernateExceptions, PersistenceExceptions... to DataAccessException
         em.setDataSource(dataSource());
-        em.setPackagesToScan("ru.itsinfo.model");
+        em.setPackagesToScan("web.model");
         em.setJpaVendorAdapter(vendorAdapter);
         return em;
     }
